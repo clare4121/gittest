@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+git-newmodule-whole/src/main/resources/static/
+git-newmodule-whole/src/main/resources/templates/
+src/main/resources/static/
+src/main/resources/templates/
