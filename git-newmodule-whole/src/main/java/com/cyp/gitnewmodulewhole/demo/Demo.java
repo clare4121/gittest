@@ -8,6 +8,7 @@ public class Demo {
     public  void main() {
         log.info("---------start---------------");
         log.info("这是一个测试demo");
+        log.info("git");
         log.info("---------end----------------");
     }
 }
