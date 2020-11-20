@@ -15,7 +15,7 @@ public class ContextBeanUtil implements InitializingBean, ApplicationContextAwar
     private ApplicationContext applicationContext;
     private Map<String, GongjuPeople> serviceImplMap = new HashMap<String, GongjuPeople>();
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet()  {
            Map<String, GongjuPeople> beanMap = applicationContext.getBeansOfType(GongjuPeople.class);
         String name = null;
         for (GongjuPeople gongjuPeople : beanMap.values()) {
@@ -32,6 +32,7 @@ public class ContextBeanUtil implements InitializingBean, ApplicationContextAwar
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }
+
 
 
     public GongjuPeople getStorageType(String name) {
