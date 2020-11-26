@@ -1,3 +1,30 @@
+server:
+  port: 18084
+  servlet:
+    context-path: /gittest
 userinfo:
   name: dev-cyp
   password: 123456-dev
+mybatis:
+  mapper-locations: classpath:/mapper/**/*.xml
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@134.78.2.134:1521:odstest1
+    username: triber_v2
+    password: unicom#SH031
+  druid:
+    initial-size: 10
+    max-active: 30
+    min-idle: 10
+    max-wait: 10000
+    pool-prepared-statements: true
+    max-pool-prepared-statement-per-connection-size: 5
+    validation-query: select 1 from dual
+    validation-query-timeout: 1
+    test-on-borrow: true
+    test-on-return: true
+    test-while-idle: true
+    time-between-eviction-runs-millis: 10000
+    min-evictable-idle-time-millis: 30001
+    async-close-connection-enable: true

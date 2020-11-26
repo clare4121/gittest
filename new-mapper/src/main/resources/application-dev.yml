@@ -1,0 +1,12 @@
+server:
+  port: 8089
+  servlet:
+    context-path: /mappertest
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@134.78.2.134:1521:odstest1
+    username: triber_v2
+    password: unicom#SH031
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**.xml

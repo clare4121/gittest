@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cyp.gitnewmodulewhole.mapper.DemoMapper">
+    <select id="smsinfo" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+      SELECT  T.SEQ_PK,
+              T.ACTIVITY_ID,
+              T.CONSIST_ID,
+              T.PHONE_NUMBER,
+              T.HS_INFO,
+              T.SMS_GATEWAY,
+              T.PRODUCT_ID,
+              T.ACTIVITY_BATCH_ID BATCH_ID
+        FROM  ST_TSK_SMS_ORDER_INFO T
+        where t.activity_id=#{activityId,jdbcType=VARCHAR}
+    </select>
+</mapper>
