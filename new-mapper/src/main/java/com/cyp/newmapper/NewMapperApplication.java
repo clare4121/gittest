@@ -15,6 +15,6 @@ public class NewMapperApplication implements CommandLineRunner {
     }
     @Override
     public void run(String... args) {
-        demo.sayImpl("20191129002739");
+        demo.sayImpl2("20200617004808");
     }
 }
