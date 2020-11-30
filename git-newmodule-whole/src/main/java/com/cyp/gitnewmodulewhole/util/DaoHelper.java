@@ -23,6 +23,10 @@ import java.util.Map;
 public class DaoHelper {
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
+
+    public <T> int selectCount(String _mybitsId) {
+        return sqlSessionTemplate.delete(_mybitsId);
+    }
     /**
      * 根据条件删除记录
      * @param _mybitsId

@@ -1,8 +1,0 @@
-server:
-  port: 18084
-  servlet:
-    context-path: /gittest
-userinfo:
-  name: test-cyp
-  password: 123456-test
-

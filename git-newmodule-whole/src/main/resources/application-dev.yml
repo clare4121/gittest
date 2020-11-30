@@ -1,30 +1,43 @@
+#项目启动参数配置
 server:
-  port: 18084
+  port: 8099
   servlet:
-    context-path: /gittest
+    context-path: /triber
 userinfo:
   name: dev-cyp
   password: 123456-dev
+#mybatis路径配置
 mybatis:
   mapper-locations: classpath:/mapper/**/*.xml
+#数据源配置
 spring:
   datasource:
     driver-class-name: oracle.jdbc.OracleDriver
     url: jdbc:oracle:thin:@134.78.2.134:1521:odstest1
     username: triber_v2
     password: unicom#SH031
-  druid:
-    initial-size: 10
-    max-active: 30
-    min-idle: 10
-    max-wait: 10000
-    pool-prepared-statements: true
-    max-pool-prepared-statement-per-connection-size: 5
-    validation-query: select 1 from dual
-    validation-query-timeout: 1
-    test-on-borrow: true
-    test-on-return: true
-    test-while-idle: true
-    time-between-eviction-runs-millis: 10000
-    min-evictable-idle-time-millis: 30001
-    async-close-connection-enable: true
+#网页路径配置
+  thymeleaf:
+    prefix: classpath:/templates/
+    cache: false
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+#    resources:
+#      static-locations: classpath:/static/, classpath:/templates/
+#单点配置
+ccas:
+  ip: 134.78.9.104
+  port: 8090
+service:
+  ip: 127.0.0.1
+  port: ${server.port}
+cas:
+  server-login-url: http://${ccas.ip}/cas/login
+  server-url-prefix: http://${ccas.ip}/cas
+  client-host-url: http://${service.ip}:${service.port}
+  validation-type: cas
+skipUrls: .*/approve/resultApprove.*,.*/api/.*,.*/rule/.*
+logoutUrl: http://${ccas.ip}/cas/logout?service=http://${service.ip}:${service.port}/triber-test
+OAserverLoginUrl: http://unifiedprotal.10010sh.cn
+
