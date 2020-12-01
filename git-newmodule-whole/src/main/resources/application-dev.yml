@@ -17,14 +17,24 @@ spring:
     username: triber_v2
     password: unicom#SH031
 #网页路径配置
-  thymeleaf:
-    prefix: classpath:/templates/
-    cache: false
-    suffix: .html
-    mode: HTML
-    encoding: UTF-8
+#  thymeleaf:
+#    prefix: classpath:/templates/
+#    cache: false
+#    suffix: .html
+#    mode: HTML
+#    encoding: UTF-8
 #    resources:
 #      static-locations: classpath:/static/, classpath:/templates/
+  freemarker:
+    cache: false
+    charset: UTF-8
+    allow-request-override: false
+    check-template-location: true
+    content-type: text/html
+    expose-request-attributes: true
+    expose-session-attributes: true
+    suffix: .ftl
+    template-loader-path: classpath:/templates/
 #单点配置
 ccas:
   ip: 134.78.9.104
