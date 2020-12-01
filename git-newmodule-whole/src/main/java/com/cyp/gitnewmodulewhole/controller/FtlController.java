@@ -14,7 +14,7 @@ import java.util.List;
 public class FtlController {
     @RequestMapping("ftlDemo")
     public ModelAndView index(HttpServletRequest request){
-        ModelAndView modelAndView = new ModelAndView("camel/main_new");
+        ModelAndView modelAndView = new ModelAndView("demo/login");
         return modelAndView;
     }
 
