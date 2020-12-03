@@ -23,7 +23,6 @@ public class ContextBeanUtil implements InitializingBean, ApplicationContextAwar
             name = gongjuPeople.getClass().getSimpleName();
 
             System.out.println("---key:\t" + name);
-
             // 将类名，作为 key,
             serviceImplMap.put(name, gongjuPeople);
         }

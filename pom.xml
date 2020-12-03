@@ -6,7 +6,6 @@
     <modules>
 		<module>new-demo</module>
 		<module>new-mapper</module>
-		<module>new-module</module>
 		<module>git-newmodule-whole</module>
     </modules>
     <parent>
