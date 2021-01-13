@@ -11,11 +11,17 @@ mybatis:
   mapper-locations: classpath:/mapper/**/*.xml
 #数据源配置
 spring:
+  redis:
+    host: 134.64.24.55
+    port: 6380
+    password: 'codis#SH021'
+    database: 0
   datasource:
     driver-class-name: oracle.jdbc.OracleDriver
     url: jdbc:oracle:thin:@134.78.2.134:1521:odstest1
     username: triber_v2
     password: unicom#SH031
+
 #网页路径配置
 #  thymeleaf:
 #    prefix: classpath:/templates/
