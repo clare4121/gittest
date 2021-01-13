@@ -16,7 +16,7 @@ public class Actor extends  Thread {
                 keepRuning=false;
             }
             if (count%10==0){
-                Thread.sleep(3000);
+                Thread.sleep(2000);
             }
         }
         System.out.println(getName()+"演出结束了");
@@ -24,7 +24,9 @@ public class Actor extends  Thread {
 
     public static void main(String[] args) {
         Thread actor = new Actor();
-         actor.setName("MRS.L");
+         actor.setName("MR.Thread");
          actor.start();
+         Thread actress =new Thread(new Actress(),"MRS.Runalble");
+         actress.start();
     }
 }
