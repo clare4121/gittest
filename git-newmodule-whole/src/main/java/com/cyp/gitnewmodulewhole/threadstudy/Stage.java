@@ -31,9 +31,10 @@ public class Stage  extends  Thread{
         mrCheng.setName("程咬金");
         System.out.println("程咬金出战=====");
         //军队停止作战
-        armyRunableRevolt.keepRuning=false;
-        armyRunableSuiDynasty.keepRuning=false;
-
+//        armyRunableRevolt.keepRuning=false;
+//        armyRunableSuiDynasty.keepRuning=false;
+        armtOfRevolt.stop();
+        armyOfSui.stop();
         //线程休眠
         Thread.sleep(2000);
         mrCheng.start();
