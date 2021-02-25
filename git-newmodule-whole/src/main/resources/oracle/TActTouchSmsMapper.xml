@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyp.gitnewmodulewhole.oracleMapperDao.TActTouchSmsMapper">
+  <resultMap id="BaseResultMap" type="com.cyp.gitnewmodulewhole.oracleMapperModel.TActTouchSms">
+    <result column="WAVE_ID" jdbcType="VARCHAR" property="waveId" />
+    <result column="CONSIST_ID" jdbcType="VARCHAR" property="consistId" />
+    <result column="ACTIVITY_ID" jdbcType="VARCHAR" property="activityId" />
+    <result column="SMS_GATEWAY" jdbcType="VARCHAR" property="smsGateway" />
+    <result column="WORDS" jdbcType="VARCHAR" property="words" />
+    <result column="IN_URL" jdbcType="VARCHAR" property="inUrl" />
+    <result column="IN_SHORT_URL" jdbcType="VARCHAR" property="inShortUrl" />
+    <result column="IF_ORDER" jdbcType="DECIMAL" property="ifOrder" />
+    <result column="PRODUCT_ID" jdbcType="VARCHAR" property="productId" />
+    <result column="SMS_ORDER_CODE" jdbcType="VARCHAR" property="smsOrderCode" />
+    <result column="SMS_VALID_DURA" jdbcType="DECIMAL" property="smsValidDura" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="WORDS_HTML" jdbcType="VARCHAR" property="wordsHtml" />
+    <result column="EXECUTE_TIME" jdbcType="VARCHAR" property="executeTime" />
+    <result column="PASS_DATE" jdbcType="VARCHAR" property="passDate" />
+    <result column="CUSTOM_FILTER_TYPE" jdbcType="VARCHAR" property="customFilterType" />
+    <result column="TOUCH_RULE" jdbcType="VARCHAR" property="touchRule" />
+  </resultMap>
+  <insert id="insert" parameterType="com.cyp.gitnewmodulewhole.oracleMapperModel.TActTouchSms">
+    insert into T_ACT_TOUCH_SMS (WAVE_ID, CONSIST_ID, ACTIVITY_ID, 
+      SMS_GATEWAY, WORDS, IN_URL, 
+      IN_SHORT_URL, IF_ORDER, PRODUCT_ID, 
+      SMS_ORDER_CODE, SMS_VALID_DURA, UPDATE_TIME, 
+      WORDS_HTML, EXECUTE_TIME, PASS_DATE, 
+      CUSTOM_FILTER_TYPE, TOUCH_RULE)
+    values (#{waveId,jdbcType=VARCHAR}, #{consistId,jdbcType=VARCHAR}, #{activityId,jdbcType=VARCHAR}, 
+      #{smsGateway,jdbcType=VARCHAR}, #{words,jdbcType=VARCHAR}, #{inUrl,jdbcType=VARCHAR}, 
+      #{inShortUrl,jdbcType=VARCHAR}, #{ifOrder,jdbcType=DECIMAL}, #{productId,jdbcType=VARCHAR}, 
+      #{smsOrderCode,jdbcType=VARCHAR}, #{smsValidDura,jdbcType=DECIMAL}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{wordsHtml,jdbcType=VARCHAR}, #{executeTime,jdbcType=VARCHAR}, #{passDate,jdbcType=VARCHAR}, 
+      #{customFilterType,jdbcType=VARCHAR}, #{touchRule,jdbcType=VARCHAR})
+  </insert>
+  <select id="select" resultMap="BaseResultMap">
+    select WAVE_ID, CONSIST_ID, ACTIVITY_ID,
+      SMS_GATEWAY, WORDS, IN_URL,
+      IN_SHORT_URL, IF_ORDER, PRODUCT_ID,
+      SMS_ORDER_CODE, SMS_VALID_DURA, UPDATE_TIME,
+      WORDS_HTML, EXECUTE_TIME, PASS_DATE,
+      CUSTOM_FILTER_TYPE, TOUCH_RULE  from T_ACT_TOUCH_SMS
+  </select>
+  <insert id="insertSelective" parameterType="com.cyp.gitnewmodulewhole.oracleMapperModel.TActTouchSms">
+    insert into T_ACT_TOUCH_SMS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="waveId != null">
+        WAVE_ID,
+      </if>
+      <if test="consistId != null">
+        CONSIST_ID,
+      </if>
+      <if test="activityId != null">
+        ACTIVITY_ID,
+      </if>
+      <if test="smsGateway != null">
+        SMS_GATEWAY,
+      </if>
+      <if test="words != null">
+        WORDS,
+      </if>
+      <if test="inUrl != null">
+        IN_URL,
+      </if>
+      <if test="inShortUrl != null">
+        IN_SHORT_URL,
+      </if>
+      <if test="ifOrder != null">
+        IF_ORDER,
+      </if>
+      <if test="productId != null">
+        PRODUCT_ID,
+      </if>
+      <if test="smsOrderCode != null">
+        SMS_ORDER_CODE,
+      </if>
+      <if test="smsValidDura != null">
+        SMS_VALID_DURA,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="wordsHtml != null">
+        WORDS_HTML,
+      </if>
+      <if test="executeTime != null">
+        EXECUTE_TIME,
+      </if>
+      <if test="passDate != null">
+        PASS_DATE,
+      </if>
+      <if test="customFilterType != null">
+        CUSTOM_FILTER_TYPE,
+      </if>
+      <if test="touchRule != null">
+        TOUCH_RULE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="waveId != null">
+        #{waveId,jdbcType=VARCHAR},
+      </if>
+      <if test="consistId != null">
+        #{consistId,jdbcType=VARCHAR},
+      </if>
+      <if test="activityId != null">
+        #{activityId,jdbcType=VARCHAR},
+      </if>
+      <if test="smsGateway != null">
+        #{smsGateway,jdbcType=VARCHAR},
+      </if>
+      <if test="words != null">
+        #{words,jdbcType=VARCHAR},
+      </if>
+      <if test="inUrl != null">
+        #{inUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="inShortUrl != null">
+        #{inShortUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="ifOrder != null">
+        #{ifOrder,jdbcType=DECIMAL},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="smsOrderCode != null">
+        #{smsOrderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="smsValidDura != null">
+        #{smsValidDura,jdbcType=DECIMAL},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wordsHtml != null">
+        #{wordsHtml,jdbcType=VARCHAR},
+      </if>
+      <if test="executeTime != null">
+        #{executeTime,jdbcType=VARCHAR},
+      </if>
+      <if test="passDate != null">
+        #{passDate,jdbcType=VARCHAR},
+      </if>
+      <if test="customFilterType != null">
+        #{customFilterType,jdbcType=VARCHAR},
+      </if>
+      <if test="touchRule != null">
+        #{touchRule,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <insert id ="insertTActTouchSmsBatch" parameterType="java.util.List" >
+    BEGIN
+    <foreach collection ="list" item="tActTouchSms" index= "index" separator ="">
+      insert into T_ACT_TOUCH_SMS_BAK (WAVE_ID, CONSIST_ID, ACTIVITY_ID,
+      SMS_GATEWAY, WORDS, IN_URL,
+      IN_SHORT_URL, IF_ORDER, PRODUCT_ID,
+      SMS_ORDER_CODE, SMS_VALID_DURA, UPDATE_TIME,
+      WORDS_HTML, EXECUTE_TIME, PASS_DATE,
+      CUSTOM_FILTER_TYPE, TOUCH_RULE)       VALUES
+      (
+      #{tActTouchSms.waveId,jdbcType=VARCHAR}, #{tActTouchSms.consistId,jdbcType=VARCHAR}, #{tActTouchSms.activityId,jdbcType=VARCHAR},
+      #{tActTouchSms.smsGateway,jdbcType=VARCHAR}, #{tActTouchSms.words,jdbcType=VARCHAR}, #{tActTouchSms.inUrl,jdbcType=VARCHAR},
+      #{tActTouchSms.inShortUrl,jdbcType=VARCHAR}, #{tActTouchSms.ifOrder,jdbcType=DECIMAL}, #{tActTouchSms.productId,jdbcType=VARCHAR},
+      #{tActTouchSms.smsOrderCode,jdbcType=VARCHAR}, #{tActTouchSms.smsValidDura,jdbcType=DECIMAL}, #{tActTouchSms.updateTime,jdbcType=TIMESTAMP},
+      #{tActTouchSms.wordsHtml,jdbcType=VARCHAR}, #{tActTouchSms.executeTime,jdbcType=VARCHAR}, #{tActTouchSms.passDate,jdbcType=VARCHAR},
+      #{tActTouchSms.customFilterType,jdbcType=VARCHAR}, #{tActTouchSms.touchRule,jdbcType=VARCHAR}
+      );
+    </foreach >
+    COMMIT;
+    END;
+  </insert >
+
+  <insert id ="insertTActTouchSmsBatch2" parameterType="java.util.List" >
+      INSERT INTO T_ACT_TOUCH_SMS_BAK (WAVE_ID, CONSIST_ID, ACTIVITY_ID,
+    SMS_GATEWAY, WORDS, IN_URL,
+    IN_SHORT_URL, IF_ORDER, PRODUCT_ID,
+    SMS_ORDER_CODE, SMS_VALID_DURA, UPDATE_TIME,
+    WORDS_HTML, EXECUTE_TIME, PASS_DATE,
+    CUSTOM_FILTER_TYPE, TOUCH_RULE)
+      <foreach collection="list" item="tActTouchSms" index="index" open="(" close=")" separator="union all">
+        SELECT   #{tActTouchSms.waveId,jdbcType=VARCHAR}, #{tActTouchSms.consistId,jdbcType=VARCHAR}, #{tActTouchSms.activityId,jdbcType=VARCHAR},
+        #{tActTouchSms.smsGateway,jdbcType=VARCHAR}, #{tActTouchSms.words,jdbcType=VARCHAR}, #{tActTouchSms.inUrl,jdbcType=VARCHAR},
+        #{tActTouchSms.inShortUrl,jdbcType=VARCHAR}, #{tActTouchSms.ifOrder,jdbcType=DECIMAL}, #{tActTouchSms.productId,jdbcType=VARCHAR},
+        #{tActTouchSms.smsOrderCode,jdbcType=VARCHAR}, #{tActTouchSms.smsValidDura,jdbcType=DECIMAL}, #{tActTouchSms.updateTime,jdbcType=TIMESTAMP},
+        #{tActTouchSms.wordsHtml,jdbcType=VARCHAR}, #{tActTouchSms.executeTime,jdbcType=VARCHAR}, #{tActTouchSms.passDate,jdbcType=VARCHAR},
+        #{tActTouchSms.customFilterType,jdbcType=VARCHAR}, #{tActTouchSms.touchRule,jdbcType=VARCHAR} FROM DUAL
+      </foreach>
+  </insert >
+
+
+</mapper>

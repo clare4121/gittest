@@ -1,18 +1,30 @@
 package com.cyp.gitnewmodulewhole.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.cyp.gitnewmodulewhole.oracleMapperDao.TActTouchSmsMapper;
+import com.cyp.gitnewmodulewhole.oracleMapperModel.TActTouchSms;
+import com.cyp.gitnewmodulewhole.util.DaoHelper;
+import com.cyp.gitnewmodulewhole.util.GetPostTest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
 @Controller
 @RequestMapping("/demo")
 public class DemoController {
+
+    private final TActTouchSmsMapper tActTouchSmsMapper;
+
+    public DemoController(TActTouchSmsMapper tActTouchSmsMapper) {
+        this.tActTouchSmsMapper = tActTouchSmsMapper;
+    }
 
     @PostMapping("/firstDemo")
     @ResponseBody
@@ -22,10 +34,11 @@ public class DemoController {
         //获取的jsonObject值存在map中
         Map map =new HashMap<String,Object>();
         map.put("activityId",jsonObject.getString("Id"));
-//        List<Map<String,Object>> mapList = getSmsInfo.getSmsList(map);
-        //存数据库
-
-        return jsonObject.toString()+"first";
+        List<TActTouchSms>  list =tActTouchSmsMapper.select();
+        System.out.println(list.size());
+        int a =tActTouchSmsMapper.insertTActTouchSmsBatch(list);
+        System.out.println(a);
+        return jsonObject.toString()+"--first";
     }
     @GetMapping("/secondDemo")
     @ResponseBody

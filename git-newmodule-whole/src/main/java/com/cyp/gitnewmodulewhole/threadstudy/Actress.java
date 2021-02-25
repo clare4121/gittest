@@ -22,3 +22,4 @@ public class Actress implements Runnable {
         System.out.println(Thread.currentThread().getName()+"演出结束了");
     }
 }
+

@@ -14,10 +14,14 @@ import java.util.List;
 
 @Service
 public class DemoImpl {
-    @Autowired
-    TActTouchSmsMapper tActTouchSmsMapper;
-    @Autowired
-    TActTouchBlbMapper tActTouchBlbMapper;
+    public TActTouchSmsMapper tActTouchSmsMapper;
+    public  TActTouchBlbMapper tActTouchBlbMapper;
+
+    public DemoImpl(TActTouchSmsMapper tActTouchSmsMapper, TActTouchBlbMapper tActTouchBlbMapper) {
+        this.tActTouchSmsMapper = tActTouchSmsMapper;
+        this.tActTouchBlbMapper = tActTouchBlbMapper;
+    }
+
     public List<TActTouchSms> sayImpl(String activityId){
         LambdaQueryWrapper<TActTouchSms> tActTouchSmsLambdaQueryWrapper = Wrappers.lambdaQuery(TActTouchSms.class);
         tActTouchSmsLambdaQueryWrapper.eq(TActTouchSms::getActivityId,activityId);
