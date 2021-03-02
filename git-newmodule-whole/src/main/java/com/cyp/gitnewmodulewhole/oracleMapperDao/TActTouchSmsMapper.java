@@ -15,4 +15,6 @@ public interface TActTouchSmsMapper {
     int insertSelective(TActTouchSms record);
     int insertTActTouchSmsBatch(List<TActTouchSms> listRecord);
     int insertTActTouchSmsBatch2(List<TActTouchSms> listRecord);
+    List<String> selectWaveIdBatch(int rownum);
+    int deleteTActTouchSmsBatch(List list);
 }

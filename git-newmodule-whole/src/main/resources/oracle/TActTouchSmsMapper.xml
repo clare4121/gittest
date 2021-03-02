@@ -151,6 +151,10 @@
       </if>
     </trim>
   </insert>
+
+  <select id="selectWaveIdBatch" parameterType="java.lang.Integer" resultType="java.lang.String">
+    SELECT WAVE_ID FROM T_ACT_TOUCH_SMS_BAK WHERE ROWNUM &lt; #{rownum}
+  </select>
   <insert id ="insertTActTouchSmsBatch" parameterType="java.util.List" >
     BEGIN
     <foreach collection ="list" item="tActTouchSms" index= "index" separator ="">
@@ -189,6 +193,13 @@
         #{tActTouchSms.customFilterType,jdbcType=VARCHAR}, #{tActTouchSms.touchRule,jdbcType=VARCHAR} FROM DUAL
       </foreach>
   </insert >
+  
+  <delete id="deleteTActTouchSmsBatch" parameterType="java.util.List">
+    DELETE FROM T_ACT_TOUCH_SMS_BAK  WHERE WAVE_ID IN
+    <foreach collection="list" item="item" index="index" open="(" close=")" separator="," >
+       #{item}
+    </foreach>
+  </delete>
 
 
 </mapper>
