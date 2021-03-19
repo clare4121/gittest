@@ -5,8 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 
 @Controller
@@ -23,6 +22,7 @@ public class DemoController {
 //        List<Map<String,Object>> mapList = getSmsInfo.getSmsList(map);
         //存数据库
         return jsonObject.toString()+"first";
+
     }
     @GetMapping("/secondDemo")
     @ResponseBody

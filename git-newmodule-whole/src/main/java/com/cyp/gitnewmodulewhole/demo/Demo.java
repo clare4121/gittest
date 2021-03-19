@@ -47,4 +47,17 @@ public class Demo {
 //        }
 //
 //    }
+    public static void aaString (int a){
+        System.out.println("int");
+        System.out.println(a);
+    }
+    public static void aaString (long a){
+        System.out.println("long");
+        System.out.println(a);
+    }
+
+    public static void main(String[] args) {
+        aaString(888);
+        aaString(777L);
+    }
 }
