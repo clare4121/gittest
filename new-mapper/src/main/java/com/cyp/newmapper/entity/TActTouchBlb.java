@@ -1,6 +1,6 @@
 package com.cyp.newmapper.entity;
 
-import java.io.Serializable;
+
 import lombok.Data;
 
 /**
@@ -8,7 +8,7 @@ import lombok.Data;
  * @author 
  */
 @Data
-public class TActTouchBlb implements Serializable {
+public class TActTouchBlb  {
     /**
      * 活动ID
      */
