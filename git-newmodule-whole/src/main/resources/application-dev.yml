@@ -1,3 +1,87 @@
+#项目启动参数配置
+server:
+  port: 8099
+  servlet:
+    context-path: /triber
 userinfo:
   name: dev-cyp
   password: 123456-dev
+#mybatis路径配置
+mybatis:
+#  mapper-locations: classpath:/mapper/**/*.xml
+  mapper-locations: classpath:/**/**/*.xml
+#数据源配置
+spring:
+  redis:
+    host: 134.64.24.55
+    port: 6380
+    password: 'codis#SH021'
+    database: 0
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@134.78.2.134:1521:odstest1
+    username: triber_v2
+    password: unicom#SH031
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      max-active: 20
+      initial-size: 5
+      max-wait: 60000
+      min-idle: 5
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      validation-query: SELECT 1 FROM DUAL
+      filters: stat,wall
+      stat-view-servlet:
+        enabled: true
+        login-username: admin
+        login-password: admin123
+        url-pattern: /druid/*
+        reset-enable: false
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+
+
+#网页路径配置
+#  thymeleaf:
+#    prefix: classpath:/templates/
+#    cache: false
+#    suffix: .html
+#    mode: HTML
+#    encoding: UTF-8
+#    resources:
+#      static-locations: classpath:/static/, classpath:/templates/
+  freemarker:
+    cache: false
+    charset: UTF-8
+    allow-request-override: false
+    check-template-location: true
+    content-type: text/html
+    expose-request-attributes: true
+    expose-session-attributes: true
+    suffix: .ftl
+    template-loader-path: classpath:/templates/
+#单点配置
+ccas:
+  ip: 134.78.9.104
+  port: 8090
+service:
+  ip: 127.0.0.1
+  port: ${server.port}
+cas:
+  server-login-url: http://${ccas.ip}/cas/login
+  server-url-prefix: http://${ccas.ip}/cas
+  client-host-url: http://${service.ip}:${service.port}
+  validation-type: cas
+skipUrls: .*/approve/resultApprove.*,.*/api/.*,.*/rule/.*
+logoutUrl: http://${ccas.ip}/cas/logout?service=http://${service.ip}:${service.port}/triber-test
+OAserverLoginUrl: http://unifiedprotal.10010sh.cn
+
