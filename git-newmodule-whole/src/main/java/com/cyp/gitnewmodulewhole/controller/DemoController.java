@@ -31,16 +31,16 @@ public class DemoController {
     public String firstDemo(@RequestBody JSONObject  jsonObject){
         System.out.println(new Date()+"====接口调用开始记录");
 //        JSONObject jsonObject =JSONObject.parseObject(str);
-        //获取的jsonObject值存在map中
-//        Map map =new HashMap<String,Object>();
-//        map.put("activityId",jsonObject.getString("Id"));
-//        List<TActTouchSms>  list =tActTouchSmsMapper.select();
-//        System.out.println(list.size());
-//        int a =tActTouchSmsMapper.insertTActTouchSmsBatch(list);
-//        System.out.println(a);
-//        List waveIdlist =tActTouchSmsMapper.selectWaveIdBatch(101);
-//        int b= tActTouchSmsMapper.deleteTActTouchSmsBatch(waveIdlist);
-//        System.out.println(b);
+       // 获取的jsonObject值存在map中
+        Map map =new HashMap<String,Object>();
+        map.put("activityId",jsonObject.getString("Id"));
+        List<TActTouchSms>  list =tActTouchSmsMapper.select();
+        System.out.println(list.size());
+        int a =tActTouchSmsMapper.insertTActTouchSmsBatch(list);
+        System.out.println(a);
+        List waveIdlist =tActTouchSmsMapper.selectWaveIdBatch(101);
+        int b= tActTouchSmsMapper.deleteTActTouchSmsBatch(waveIdlist);
+        System.out.println(b);
         return jsonObject.toString()+"--first";
     }
     @GetMapping("/secondDemo")
