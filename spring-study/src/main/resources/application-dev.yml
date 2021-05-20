@@ -1,3 +1,5 @@
-spring:
-  profiles:
-    active: dev
+#项目启动参数配置
+server:
+  port: 8099
+  servlet:
+    context-path: /springstudy

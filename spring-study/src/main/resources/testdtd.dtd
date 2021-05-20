@@ -1,0 +1,6 @@
+<!ELEMENT config (jdbcDriver,jdbcUrl,jdbcSchema,jdbcUser,jdbcPassword)>
+        <!ELEMENT jdbcDriver      (#PCDATA)>
+        <!ELEMENT jdbcUrl    (#PCDATA)>
+        <!ELEMENT jdbcSchema      (#PCDATA)>
+        <!ELEMENT jdbcUser (#PCDATA)>
+        <!ELEMENT jdbcPassword    (#PCDATA)>

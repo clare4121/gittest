@@ -3,9 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd" >
-
-    <bean id="beanScope" class="com.cyp.springstudy.defaultListableBeanFactoryStudy.Test" scope="singleton">
-        <property name="test" value="Spring"></property>
+    <bean id="myTestBean" class="com.cyp.springstudy.defaultListableBeanFactoryStudy.mybean.MyTestBean" scope="singleton">
+        <property name="props_a" value="a"></property>
+        <property name="props_b" value="b"></property>
+        <meta key="testStr" value="aaaaaaaaaaaa"/>
     </bean>
-
+    <bean id="myTestBeanTwo" class="com.cyp.springstudy.defaultListableBeanFactoryStudy.mybean.MyTestBean2" scope="prototype">
+        <property name="props_a" value="a"></property>
+        <property name="props_b" value="b"></property>
+    </bean>
 </beans>

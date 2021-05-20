@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE config SYSTEM "testdtd.dtd">
+<config>
+    <jdbcDriver></jdbcDriver>
+    <jdbcUrl></jdbcUrl>
+    <jdbcSchema></jdbcSchema>
+    <jdbcUser></jdbcUser>
+    <jdbcPassword></jdbcPassword>
+</config>
