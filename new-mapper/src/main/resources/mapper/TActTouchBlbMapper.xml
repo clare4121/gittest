@@ -53,4 +53,8 @@
     from T_ACT_TOUCH_BLB
     where ACTIVITY_ID=#{activityId}
   </select>
+  <select id="tsts" parameterMap="BaseResultMap" resultMap="BaseResultMap">
+
+
+  </select>
 </mapper>
