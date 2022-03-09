@@ -13,8 +13,4 @@ public class NewMapperApplication  {
     public static void main(String[] args) {
         SpringApplication.run(NewMapperApplication.class, args);
     }
-//    @Override
-//    public void run(String... args) {
-//        demo.sayImpl2("20200617004808");
-//    }
 }
