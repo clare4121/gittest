@@ -1,0 +1,35 @@
+    <insert id="insertBatch"  parameterType="java.util.List" >
+        INSERT  INTO gem_custom_policy_info_customer_upload_temp (	 policy_id,
+                                                            batch_id,
+                                                            customer_id,
+                                                            customer_name,
+                                                            execute_id,
+                                                            customer_type,
+                                                            insert_time,
+                                                            insert_by,
+                                                            sync_status,
+                                                            space1,
+                                                            space2,
+                                                            space3,
+                                                            space4,
+                                                            space5
+        ) values
+        <foreach collection="list"  item="item" separator=",">
+        (
+            #{item.policy_id},
+            #{item.batch_id},
+            #{item.customer_id},
+            #{item.customer_name},
+            #{item.execute_id},
+            #{item.customer_type},
+            #{item.insert_time},
+            #{item.insert_by},
+            #{item.sync_status},
+            #{item.space1},
+            #{item.space2},
+            #{item.space3},
+            #{item.space4},
+            #{item.space5}
+            )
+        </foreach>
+    </insert>
