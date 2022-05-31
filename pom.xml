@@ -8,7 +8,8 @@
 		<module>new-mapper</module>
 		<module>git-newmodule-whole</module>
 		<module>com-flink</module>
-    </modules>
+		<module>shiro-study</module>
+	</modules>
     <parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
