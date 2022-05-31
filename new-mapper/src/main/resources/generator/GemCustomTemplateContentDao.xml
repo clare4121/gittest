@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyp.newmapper.mapper.GemCustomTemplateContentDao">
+  <resultMap id="BaseResultMap" type="com.cyp.newmapper.entity.GemCustomTemplateContent">
+    <result column="PRODUCT_TYPE" jdbcType="VARCHAR" property="productType" />
+    <result column="TEMPLATE_ID" jdbcType="VARCHAR" property="templateId" />
+    <result column="CONTENT_ID" jdbcType="VARCHAR" property="contentId" />
+    <result column="CONTENT_DESC" jdbcType="VARCHAR" property="contentDesc" />
+    <result column="CONTENT_TYPE" jdbcType="VARCHAR" property="contentType" />
+    <result column="REAL_ANSER_code" jdbcType="VARCHAR" property="realAnserCode" />
+    <result column="REAL_ANSER" jdbcType="VARCHAR" property="realAnser" />
+    <result column="SHUNXU" jdbcType="VARCHAR" property="shunxu" />
+    <result column="CREATE_DATE" jdbcType="DATE" property="createDate" />
+    <result column="UPDATE_DATE" jdbcType="DATE" property="updateDate" />
+    <result column="CONTENT_STATUS" jdbcType="VARCHAR" property="contentStatus" />
+    <result column="ANSER_TIME" jdbcType="TIMESTAMP" property="anserTime" />
+    <result column="INPUT_TYPE" jdbcType="VARCHAR" property="inputType" />
+  </resultMap>
+  <insert id="insert" parameterType="com.cyp.newmapper.entity.GemCustomTemplateContent">
+    insert into gem_custom_template_content (PRODUCT_TYPE, TEMPLATE_ID, CONTENT_ID, 
+      CONTENT_DESC, CONTENT_TYPE, REAL_ANSER_code, 
+      REAL_ANSER, SHUNXU, CREATE_DATE, 
+      UPDATE_DATE, CONTENT_STATUS, ANSER_TIME, 
+      INPUT_TYPE)
+    values (#{productType,jdbcType=VARCHAR}, #{templateId,jdbcType=VARCHAR}, #{contentId,jdbcType=VARCHAR}, 
+      #{contentDesc,jdbcType=VARCHAR}, #{contentType,jdbcType=VARCHAR}, #{realAnserCode,jdbcType=VARCHAR}, 
+      #{realAnser,jdbcType=VARCHAR}, #{shunxu,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{updateDate,jdbcType=DATE}, #{contentStatus,jdbcType=VARCHAR}, #{anserTime,jdbcType=TIMESTAMP}, 
+      #{inputType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cyp.newmapper.entity.GemCustomTemplateContent">
+    insert into gem_custom_template_content
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productType != null">
+        PRODUCT_TYPE,
+      </if>
+      <if test="templateId != null">
+        TEMPLATE_ID,
+      </if>
+      <if test="contentId != null">
+        CONTENT_ID,
+      </if>
+      <if test="contentDesc != null">
+        CONTENT_DESC,
+      </if>
+      <if test="contentType != null">
+        CONTENT_TYPE,
+      </if>
+      <if test="realAnserCode != null">
+        REAL_ANSER_code,
+      </if>
+      <if test="realAnser != null">
+        REAL_ANSER,
+      </if>
+      <if test="shunxu != null">
+        SHUNXU,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="contentStatus != null">
+        CONTENT_STATUS,
+      </if>
+      <if test="anserTime != null">
+        ANSER_TIME,
+      </if>
+      <if test="inputType != null">
+        INPUT_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productType != null">
+        #{productType,jdbcType=VARCHAR},
+      </if>
+      <if test="templateId != null">
+        #{templateId,jdbcType=VARCHAR},
+      </if>
+      <if test="contentId != null">
+        #{contentId,jdbcType=VARCHAR},
+      </if>
+      <if test="contentDesc != null">
+        #{contentDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="contentType != null">
+        #{contentType,jdbcType=VARCHAR},
+      </if>
+      <if test="realAnserCode != null">
+        #{realAnserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="realAnser != null">
+        #{realAnser,jdbcType=VARCHAR},
+      </if>
+      <if test="shunxu != null">
+        #{shunxu,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=DATE},
+      </if>
+      <if test="contentStatus != null">
+        #{contentStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="anserTime != null">
+        #{anserTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inputType != null">
+        #{inputType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

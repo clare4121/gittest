@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyp.newmapper.mapper.GemCustomTemplateDao">
+  <resultMap id="BaseResultMap" type="com.cyp.newmapper.entity.GemCustomTemplate">
+    <result column="gem_custom_template_CREATE_ORG" jdbcType="VARCHAR" property="createOrg" />
+    <result column="gem_custom_template_TEMPLATE_ID" jdbcType="VARCHAR" property="templateId" />
+    <result column="gem_custom_template_TEMPLATE_NAME" jdbcType="VARCHAR" property="templateName" />
+    <result column="gem_custom_template_TEMPLATE_DETAIL" jdbcType="VARCHAR" property="templateDetail" />
+    <result column="gem_custom_template_PRODUCT_TYPE" jdbcType="VARCHAR" property="productType" />
+    <result column="gem_custom_template_CREATE_DATE" jdbcType="DATE" property="createDate" />
+    <result column="gem_custom_template_UPDATE_DATE" jdbcType="DATE" property="updateDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.cyp.newmapper.entity.GemCustomTemplate">
+    insert into gem_custom_template (CREATE_ORG, TEMPLATE_ID, TEMPLATE_NAME, 
+      TEMPLATE_DETAIL, PRODUCT_TYPE, CREATE_DATE, 
+      UPDATE_DATE)
+    values (#{createOrg,jdbcType=VARCHAR}, #{templateId,jdbcType=VARCHAR}, #{templateName,jdbcType=VARCHAR}, 
+      #{templateDetail,jdbcType=VARCHAR}, #{productType,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, 
+      #{updateDate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cyp.newmapper.entity.GemCustomTemplate">
+    insert into gem_custom_template
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="createOrg != null">
+        CREATE_ORG,
+      </if>
+      <if test="templateId != null">
+        TEMPLATE_ID,
+      </if>
+      <if test="templateName != null">
+        TEMPLATE_NAME,
+      </if>
+      <if test="templateDetail != null">
+        TEMPLATE_DETAIL,
+      </if>
+      <if test="productType != null">
+        PRODUCT_TYPE,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="createOrg != null">
+        #{createOrg,jdbcType=VARCHAR},
+      </if>
+      <if test="templateId != null">
+        #{templateId,jdbcType=VARCHAR},
+      </if>
+      <if test="templateName != null">
+        #{templateName,jdbcType=VARCHAR},
+      </if>
+      <if test="templateDetail != null">
+        #{templateDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="productType != null">
+        #{productType,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+</mapper>
