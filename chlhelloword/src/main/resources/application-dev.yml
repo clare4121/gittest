@@ -1,0 +1,6 @@
+#项目启动参数配置
+server:
+  port: 8666
+  servlet:
+    context-path: /springboottest
+
