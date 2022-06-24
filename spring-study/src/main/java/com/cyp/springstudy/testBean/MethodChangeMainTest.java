@@ -15,15 +15,15 @@ public class MethodChangeMainTest {
     @Autowired
     DefaultListableBeanFactory defaultListableBeanFactory;
     XmlBeanDefinitionReader xmlBeanDefinitionReader;
-    public static Map testGetbean() throws InterruptedException, IOException {
+    public static Map testGetbean(){
         BeanFactory bf = new XmlBeanFactory(new ClassPathResource("/static/TestChangeMethod.xml"));
-        GetBeanTest test =(GetBeanTest) bf.getBean("getBeanTest");
+        GetBeanTest test =(GetBeanTest) bf.getBean("GetBeanTest");
         test.showMe();
         return null;
     }
 
 
-    public static void main(String[] args) throws InterruptedException, IOException {
+    public static void main(String[] args) {
         testGetbean();
     }
 }
