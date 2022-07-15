@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyp.newmapper.mapper.LabelConfigCodeMapper">
+  <resultMap id="BaseResultMap" type="com.cyp.newmapper.entity.LabelConfigCode">
+    <result column="label_id" jdbcType="VARCHAR" property="labelId" />
+    <result column="web_field" jdbcType="VARCHAR" property="webField" />
+    <result column="table_field" jdbcType="VARCHAR" property="tableField" />
+    <result column="field_desc" jdbcType="VARCHAR" property="fieldDesc" />
+    <result column="if_use" jdbcType="VARCHAR" property="ifUse" />
+    <result column="label_type" jdbcType="VARCHAR" property="labelType" />
+    <result column="value_type" jdbcType="VARCHAR" property="valueType" />
+  </resultMap>
+  <insert id="insert" parameterType="com.cyp.newmapper.entity.LabelConfigCode">
+    insert into label_config_code (label_id, web_field, table_field, 
+      field_desc, if_use, label_type, 
+      value_type)
+    values (#{labelId,jdbcType=VARCHAR}, #{webField,jdbcType=VARCHAR}, #{tableField,jdbcType=VARCHAR}, 
+      #{fieldDesc,jdbcType=VARCHAR}, #{ifUse,jdbcType=VARCHAR}, #{labelType,jdbcType=VARCHAR}, 
+      #{valueType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cyp.newmapper.entity.LabelConfigCode">
+    insert into label_config_code
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="labelId != null">
+        label_id,
+      </if>
+      <if test="webField != null">
+        web_field,
+      </if>
+      <if test="tableField != null">
+        table_field,
+      </if>
+      <if test="fieldDesc != null">
+        field_desc,
+      </if>
+      <if test="ifUse != null">
+        if_use,
+      </if>
+      <if test="labelType != null">
+        label_type,
+      </if>
+      <if test="valueType != null">
+        value_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="labelId != null">
+        #{labelId,jdbcType=VARCHAR},
+      </if>
+      <if test="webField != null">
+        #{webField,jdbcType=VARCHAR},
+      </if>
+      <if test="tableField != null">
+        #{tableField,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldDesc != null">
+        #{fieldDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="ifUse != null">
+        #{ifUse,jdbcType=VARCHAR},
+      </if>
+      <if test="labelType != null">
+        #{labelType,jdbcType=VARCHAR},
+      </if>
+      <if test="valueType != null">
+        #{valueType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

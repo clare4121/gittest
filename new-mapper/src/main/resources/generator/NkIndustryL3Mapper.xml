@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyp.newmapper.mapper.NkIndustryL3Mapper">
+  <resultMap id="BaseResultMap" type="com.cyp.newmapper.entity.NkIndustryL3Entity">
+    <result column="NK_INDUSTRY_L1" jdbcType="VARCHAR" property="nkIndustryL1" />
+    <result column="NK_INDUSTRY_L2" jdbcType="VARCHAR" property="nkIndustryL2" />
+    <result column="NK_INDUSTRY_L3" jdbcType="VARCHAR" property="nkIndustryL3" />
+    <result column="NK_INDUSTRY_L1_NAME" jdbcType="VARCHAR" property="nkIndustryL1Name" />
+    <result column="NK_INDUSTRY_L2_NAME" jdbcType="VARCHAR" property="nkIndustryL2Name" />
+    <result column="NK_INDUSTRY_L3_NAME" jdbcType="VARCHAR" property="nkIndustryL3Name" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    NK_INDUSTRY_L1, NK_INDUSTRY_L2, NK_INDUSTRY_L3, NK_INDUSTRY_L1_NAME, NK_INDUSTRY_L2_NAME, 
+    NK_INDUSTRY_L3_NAME
+  </sql>
+  <select id="selectByExample" parameterType="com.cyp.newmapper.entity.NkIndustryL3EntityExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from nk_industry_l3
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate != null and forUpdate == true">
+      for update
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.cyp.newmapper.entity.NkIndustryL3EntityExample">
+    delete from nk_industry_l3
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.cyp.newmapper.entity.NkIndustryL3Entity">
+    insert into nk_industry_l3 (NK_INDUSTRY_L1, NK_INDUSTRY_L2, NK_INDUSTRY_L3, 
+      NK_INDUSTRY_L1_NAME, NK_INDUSTRY_L2_NAME, NK_INDUSTRY_L3_NAME
+      )
+    values (#{nkIndustryL1,jdbcType=VARCHAR}, #{nkIndustryL2,jdbcType=VARCHAR}, #{nkIndustryL3,jdbcType=VARCHAR}, 
+      #{nkIndustryL1Name,jdbcType=VARCHAR}, #{nkIndustryL2Name,jdbcType=VARCHAR}, #{nkIndustryL3Name,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cyp.newmapper.entity.NkIndustryL3Entity">
+    insert into nk_industry_l3
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nkIndustryL1 != null">
+        NK_INDUSTRY_L1,
+      </if>
+      <if test="nkIndustryL2 != null">
+        NK_INDUSTRY_L2,
+      </if>
+      <if test="nkIndustryL3 != null">
+        NK_INDUSTRY_L3,
+      </if>
+      <if test="nkIndustryL1Name != null">
+        NK_INDUSTRY_L1_NAME,
+      </if>
+      <if test="nkIndustryL2Name != null">
+        NK_INDUSTRY_L2_NAME,
+      </if>
+      <if test="nkIndustryL3Name != null">
+        NK_INDUSTRY_L3_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nkIndustryL1 != null">
+        #{nkIndustryL1,jdbcType=VARCHAR},
+      </if>
+      <if test="nkIndustryL2 != null">
+        #{nkIndustryL2,jdbcType=VARCHAR},
+      </if>
+      <if test="nkIndustryL3 != null">
+        #{nkIndustryL3,jdbcType=VARCHAR},
+      </if>
+      <if test="nkIndustryL1Name != null">
+        #{nkIndustryL1Name,jdbcType=VARCHAR},
+      </if>
+      <if test="nkIndustryL2Name != null">
+        #{nkIndustryL2Name,jdbcType=VARCHAR},
+      </if>
+      <if test="nkIndustryL3Name != null">
+        #{nkIndustryL3Name,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.cyp.newmapper.entity.NkIndustryL3EntityExample" resultType="java.lang.Long">
+    select count(*) from nk_industry_l3
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update nk_industry_l3
+    <set>
+      <if test="record.nkIndustryL1 != null">
+        NK_INDUSTRY_L1 = #{record.nkIndustryL1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nkIndustryL2 != null">
+        NK_INDUSTRY_L2 = #{record.nkIndustryL2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nkIndustryL3 != null">
+        NK_INDUSTRY_L3 = #{record.nkIndustryL3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nkIndustryL1Name != null">
+        NK_INDUSTRY_L1_NAME = #{record.nkIndustryL1Name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nkIndustryL2Name != null">
+        NK_INDUSTRY_L2_NAME = #{record.nkIndustryL2Name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nkIndustryL3Name != null">
+        NK_INDUSTRY_L3_NAME = #{record.nkIndustryL3Name,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update nk_industry_l3
+    set NK_INDUSTRY_L1 = #{record.nkIndustryL1,jdbcType=VARCHAR},
+      NK_INDUSTRY_L2 = #{record.nkIndustryL2,jdbcType=VARCHAR},
+      NK_INDUSTRY_L3 = #{record.nkIndustryL3,jdbcType=VARCHAR},
+      NK_INDUSTRY_L1_NAME = #{record.nkIndustryL1Name,jdbcType=VARCHAR},
+      NK_INDUSTRY_L2_NAME = #{record.nkIndustryL2Name,jdbcType=VARCHAR},
+      NK_INDUSTRY_L3_NAME = #{record.nkIndustryL3Name,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyp.newmapper.mapper.LabelUseLogMapper">
+  <resultMap id="BaseResultMap" type="com.cyp.newmapper.entity.LabelUseLog">
+    <result column="label_id" jdbcType="VARCHAR" property="labelId" />
+    <result column="use_person" jdbcType="VARCHAR" property="usePerson" />
+    <result column="use_time" jdbcType="VARCHAR" property="useTime" />
+    <result column="label_name" jdbcType="VARCHAR" property="labelName" />
+    <result column="label_value" jdbcType="VARCHAR" property="labelValue" />
+    <result column="use_interface" jdbcType="VARCHAR" property="useInterface" />
+    <result column="label_value_min" jdbcType="VARCHAR" property="labelValueMin" />
+    <result column="label_value_max" jdbcType="VARCHAR" property="labelValueMax" />
+    <result column="label_type" jdbcType="VARCHAR" property="labelType" />
+  </resultMap>
+  <insert id="insert" parameterType="com.cyp.newmapper.entity.LabelUseLog">
+    insert into label_use_log (label_id, use_person, use_time, 
+      label_name, label_value, use_interface, 
+      label_value_min, label_value_max, label_type
+      )
+    values (#{labelId,jdbcType=VARCHAR}, #{usePerson,jdbcType=VARCHAR}, #{useTime,jdbcType=VARCHAR}, 
+      #{labelName,jdbcType=VARCHAR}, #{labelValue,jdbcType=VARCHAR}, #{useInterface,jdbcType=VARCHAR}, 
+      #{labelValueMin,jdbcType=VARCHAR}, #{labelValueMax,jdbcType=VARCHAR}, #{labelType,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cyp.newmapper.entity.LabelUseLog">
+    insert into label_use_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="labelId != null">
+        label_id,
+      </if>
+      <if test="usePerson != null">
+        use_person,
+      </if>
+      <if test="useTime != null">
+        use_time,
+      </if>
+      <if test="labelName != null">
+        label_name,
+      </if>
+      <if test="labelValue != null">
+        label_value,
+      </if>
+      <if test="useInterface != null">
+        use_interface,
+      </if>
+      <if test="labelValueMin != null">
+        label_value_min,
+      </if>
+      <if test="labelValueMax != null">
+        label_value_max,
+      </if>
+      <if test="labelType != null">
+        label_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="labelId != null">
+        #{labelId,jdbcType=VARCHAR},
+      </if>
+      <if test="usePerson != null">
+        #{usePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="useTime != null">
+        #{useTime,jdbcType=VARCHAR},
+      </if>
+      <if test="labelName != null">
+        #{labelName,jdbcType=VARCHAR},
+      </if>
+      <if test="labelValue != null">
+        #{labelValue,jdbcType=VARCHAR},
+      </if>
+      <if test="useInterface != null">
+        #{useInterface,jdbcType=VARCHAR},
+      </if>
+      <if test="labelValueMin != null">
+        #{labelValueMin,jdbcType=VARCHAR},
+      </if>
+      <if test="labelValueMax != null">
+        #{labelValueMax,jdbcType=VARCHAR},
+      </if>
+      <if test="labelType != null">
+        #{labelType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
