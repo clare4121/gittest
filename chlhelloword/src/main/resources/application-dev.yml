@@ -1,6 +1,9 @@
-#项目启动参数配置
 server:
   port: 8666
   servlet:
     context-path: /springboottest
-
+cas:
+  server-url-prefix: http://cas-server-url
+  server-login-url: http://cas-server-url/login
+  client-host-url: http://cas-client-application-host // cas服务器通过这个关联ticket信息，需要保证后续请求cas服务器的host都是这个
+  validation-type: CAS

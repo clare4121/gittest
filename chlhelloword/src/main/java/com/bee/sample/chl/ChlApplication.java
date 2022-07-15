@@ -1,7 +1,11 @@
 package com.bee.sample.chl;
 
+
+
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 
 /**
  * @author cyp
@@ -10,7 +14,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Description TODO
  * @createTime 2022年05月31日 17:10:00
  */
+
 @SpringBootApplication
+
 public class ChlApplication {
     public static void main(String[] args) {
     SpringApplication.run(ChlApplication.class,args);

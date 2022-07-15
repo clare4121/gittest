@@ -1,6 +1,5 @@
 package com.bee.sample.chl.controller;
 
-import com.bee.sample.chl.test.CarFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;

@@ -8,4 +8,5 @@ package com.bee.sample.chl.quartzTask;
  * @createTime 2022年06月22日 18:52:00
  */
 public class quartzTest {
+
 }
