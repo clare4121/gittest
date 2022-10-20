@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyp.newmapper.mapper.SmsQueueMapper">
+  <resultMap id="BaseResultMap" type="com.cyp.newmapper.entity.SmsQueueDTO">
+    <id column="row_no" jdbcType="BIGINT" property="rowNo" />
+    <result column="device_number" jdbcType="VARCHAR" property="deviceNumber" />
+    <result column="sms_content" jdbcType="VARCHAR" property="smsContent" />
+    <result column="send_time" jdbcType="TIMESTAMP" property="sendTime" />
+    <result column="is_set" jdbcType="VARCHAR" property="isSet" />
+    <result column="login_id" jdbcType="VARCHAR" property="loginId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    row_no, device_number, sms_content, send_time, is_set, login_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sms_queue
+    where row_no = #{rowNo,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sms_queue
+    where row_no = #{rowNo,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="row_no" keyProperty="rowNo" parameterType="com.cyp.newmapper.entity.SmsQueueDTO" useGeneratedKeys="true">
+    insert into sms_queue (device_number, sms_content, send_time, 
+      is_set, login_id)
+    values (#{deviceNumber,jdbcType=VARCHAR}, #{smsContent,jdbcType=VARCHAR}, #{sendTime,jdbcType=TIMESTAMP}, 
+      #{isSet,jdbcType=VARCHAR}, #{loginId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="row_no" keyProperty="rowNo" parameterType="com.cyp.newmapper.entity.SmsQueueDTO" useGeneratedKeys="true">
+    insert into sms_queue
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deviceNumber != null">
+        device_number,
+      </if>
+      <if test="smsContent != null">
+        sms_content,
+      </if>
+      <if test="sendTime != null">
+        send_time,
+      </if>
+      <if test="isSet != null">
+        is_set,
+      </if>
+      <if test="loginId != null">
+        login_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deviceNumber != null">
+        #{deviceNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="smsContent != null">
+        #{smsContent,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null">
+        #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isSet != null">
+        #{isSet,jdbcType=VARCHAR},
+      </if>
+      <if test="loginId != null">
+        #{loginId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cyp.newmapper.entity.SmsQueueDTO">
+    update sms_queue
+    <set>
+      <if test="deviceNumber != null">
+        device_number = #{deviceNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="smsContent != null">
+        sms_content = #{smsContent,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null">
+        send_time = #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isSet != null">
+        is_set = #{isSet,jdbcType=VARCHAR},
+      </if>
+      <if test="loginId != null">
+        login_id = #{loginId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where row_no = #{rowNo,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cyp.newmapper.entity.SmsQueueDTO">
+    update sms_queue
+    set device_number = #{deviceNumber,jdbcType=VARCHAR},
+      sms_content = #{smsContent,jdbcType=VARCHAR},
+      send_time = #{sendTime,jdbcType=TIMESTAMP},
+      is_set = #{isSet,jdbcType=VARCHAR},
+      login_id = #{loginId,jdbcType=VARCHAR}
+    where row_no = #{rowNo,jdbcType=BIGINT}
+  </update>
+</mapper>

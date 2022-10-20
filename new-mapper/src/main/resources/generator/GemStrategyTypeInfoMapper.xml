@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyp.newmapper.mapper.GemStrategyTypeInfoMapper">
+  <resultMap id="BaseResultMap" type="com.cyp.newmapper.entity.GemStrategyTypeInfoDTO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="strategy_type_id" jdbcType="VARCHAR" property="strategyTypeId" />
+    <result column="strategy_type_name" jdbcType="VARCHAR" property="strategyTypeName" />
+    <result column="strategy_type_ascription" jdbcType="VARCHAR" property="strategyTypeAscription" />
+    <result column="adaptation_type" jdbcType="VARCHAR" property="adaptationType" />
+    <result column="is_valid" jdbcType="VARCHAR" property="isValid" />
+    <result column="spare1" jdbcType="VARCHAR" property="spare1" />
+    <result column="spare2" jdbcType="VARCHAR" property="spare2" />
+    <result column="login_id" jdbcType="VARCHAR" property="loginId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, strategy_type_id, strategy_type_name, strategy_type_ascription, adaptation_type, 
+    is_valid, spare1, spare2, login_id, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from gem_strategy_type_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from gem_strategy_type_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.cyp.newmapper.entity.GemStrategyTypeInfoDTO" useGeneratedKeys="true">
+    insert into gem_strategy_type_info (strategy_type_id, strategy_type_name, 
+      strategy_type_ascription, adaptation_type, 
+      is_valid, spare1, spare2, 
+      login_id, create_time, update_time
+      )
+    values (#{strategyTypeId,jdbcType=VARCHAR}, #{strategyTypeName,jdbcType=VARCHAR}, 
+      #{strategyTypeAscription,jdbcType=VARCHAR}, #{adaptationType,jdbcType=VARCHAR}, 
+      #{isValid,jdbcType=VARCHAR}, #{spare1,jdbcType=VARCHAR}, #{spare2,jdbcType=VARCHAR}, 
+      #{loginId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.cyp.newmapper.entity.GemStrategyTypeInfoDTO" useGeneratedKeys="true">
+    insert into gem_strategy_type_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="strategyTypeId != null">
+        strategy_type_id,
+      </if>
+      <if test="strategyTypeName != null">
+        strategy_type_name,
+      </if>
+      <if test="strategyTypeAscription != null">
+        strategy_type_ascription,
+      </if>
+      <if test="adaptationType != null">
+        adaptation_type,
+      </if>
+      <if test="isValid != null">
+        is_valid,
+      </if>
+      <if test="spare1 != null">
+        spare1,
+      </if>
+      <if test="spare2 != null">
+        spare2,
+      </if>
+      <if test="loginId != null">
+        login_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="strategyTypeId != null">
+        #{strategyTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="strategyTypeName != null">
+        #{strategyTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="strategyTypeAscription != null">
+        #{strategyTypeAscription,jdbcType=VARCHAR},
+      </if>
+      <if test="adaptationType != null">
+        #{adaptationType,jdbcType=VARCHAR},
+      </if>
+      <if test="isValid != null">
+        #{isValid,jdbcType=VARCHAR},
+      </if>
+      <if test="spare1 != null">
+        #{spare1,jdbcType=VARCHAR},
+      </if>
+      <if test="spare2 != null">
+        #{spare2,jdbcType=VARCHAR},
+      </if>
+      <if test="loginId != null">
+        #{loginId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cyp.newmapper.entity.GemStrategyTypeInfoDTO">
+    update gem_strategy_type_info
+    <set>
+      <if test="strategyTypeId != null">
+        strategy_type_id = #{strategyTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="strategyTypeName != null">
+        strategy_type_name = #{strategyTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="strategyTypeAscription != null">
+        strategy_type_ascription = #{strategyTypeAscription,jdbcType=VARCHAR},
+      </if>
+      <if test="adaptationType != null">
+        adaptation_type = #{adaptationType,jdbcType=VARCHAR},
+      </if>
+      <if test="isValid != null">
+        is_valid = #{isValid,jdbcType=VARCHAR},
+      </if>
+      <if test="spare1 != null">
+        spare1 = #{spare1,jdbcType=VARCHAR},
+      </if>
+      <if test="spare2 != null">
+        spare2 = #{spare2,jdbcType=VARCHAR},
+      </if>
+      <if test="loginId != null">
+        login_id = #{loginId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cyp.newmapper.entity.GemStrategyTypeInfoDTO">
+    update gem_strategy_type_info
+    set strategy_type_id = #{strategyTypeId,jdbcType=VARCHAR},
+      strategy_type_name = #{strategyTypeName,jdbcType=VARCHAR},
+      strategy_type_ascription = #{strategyTypeAscription,jdbcType=VARCHAR},
+      adaptation_type = #{adaptationType,jdbcType=VARCHAR},
+      is_valid = #{isValid,jdbcType=VARCHAR},
+      spare1 = #{spare1,jdbcType=VARCHAR},
+      spare2 = #{spare2,jdbcType=VARCHAR},
+      login_id = #{loginId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

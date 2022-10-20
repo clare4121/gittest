@@ -1,5 +1,7 @@
 package com.bee.sample.chl.controller;
 
+import com.bee.sample.chl.common.JwtUser;
+import com.bee.sample.chl.web.TokenUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,7 +17,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HelloWorldController {
     @RequestMapping("sayhello.html")
     @ResponseBody
-    public  String say(){
+    public  String say(@TokenUser JwtUser jwtTokenUser){
+        System.out.println(jwtTokenUser);
+        System.out.println("------HelloWorldController的调用记录----------");
         return "hello Spring Boot";
     }
+
+
+
+
+
+
+
 }

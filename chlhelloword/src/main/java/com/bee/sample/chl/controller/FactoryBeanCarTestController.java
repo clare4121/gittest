@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author cyp
@@ -12,12 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Description TODO
  * @createTime 2022年06月15日 16:03:00
  */
-@Controller
+@RestController
+@RequestMapping("/api")
 public class FactoryBeanCarTestController {
     @Autowired
     private ApplicationContext applicationContext;
-    @RequestMapping("/getAllbeans")
-    public void getAllbeans() {
-       applicationContext.getApplicationName();
+    @RequestMapping(value = "/getAllbeans")
+    public String getAllbeans() {
+       String names= applicationContext.getApplicationName();
+       return names;
     }
 }

@@ -16,7 +16,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 @SpringBootApplication
-
 public class ChlApplication {
     public static void main(String[] args) {
     SpringApplication.run(ChlApplication.class,args);

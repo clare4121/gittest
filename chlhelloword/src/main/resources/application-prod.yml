@@ -1,7 +1,7 @@
 server:
-  port: 8666
+  port: 8667
   servlet:
-    context-path: /springboottest
+    context-path: /test
 #cas:
 #  server-url-prefix: http://cas-server-url
 #  server-login-url: http://cas-server-url/login

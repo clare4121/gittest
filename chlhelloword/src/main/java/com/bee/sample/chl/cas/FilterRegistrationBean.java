@@ -1,7 +1,9 @@
 //package com.bee.sample.chl.cas;
 //
 //import org.jasig.cas.client.authentication.AuthenticationFilter;
+//import org.springframework.beans.factory.annotation.Value;
 //import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Configuration;
 //
 //import java.util.HashMap;
 //import java.util.Map;
@@ -13,7 +15,16 @@
 // * @Description TODO
 // * @createTime 2022年07月08日 17:03:00
 // */
+//@Configuration
 //public class FilterRegistrationBean {
+//    @Value("${cas.serverName}")
+//    String serverName;
+//    @Value("${cas.casServerUrlPrefix}")
+//    String casServerUrlPrefix;
+//    @Value("${cas.casServerLoginUrl}")
+//    String casServerLoginUrl;
+//
+//
 //    @Bean
 //    public FilterRegistrationBean filterAuthenticationRegistration() {
 //        FilterRegistrationBean registration = new FilterRegistrationBean();
