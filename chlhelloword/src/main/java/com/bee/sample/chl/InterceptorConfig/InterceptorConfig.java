@@ -18,8 +18,8 @@ public class InterceptorConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(authenticationInterceptor())
-                .addPathPatterns("/api/asafsf")
-                .excludePathPatterns("/api/getAllbeans");
+                .addPathPatterns("/*");
+//                .excludePathPatterns("/api/getAllbeans");
     }
 
     @Bean
