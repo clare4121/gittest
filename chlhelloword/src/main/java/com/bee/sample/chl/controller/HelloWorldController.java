@@ -1,6 +1,8 @@
 package com.bee.sample.chl.controller;
 
 import com.bee.sample.chl.common.JwtUser;
+import com.bee.sample.chl.exercises.annotionexercise.HandEnum;
+import com.bee.sample.chl.exercises.annotionexercise.PrintLog;
 import com.bee.sample.chl.web.TokenUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HelloWorldController {
     @RequestMapping("sayhello.html")
     @ResponseBody
+    @PrintLog(value = "sayhello.html",handle = HandEnum.SELECT,save =true)
     public  String say(@TokenUser JwtUser jwtTokenUser){
         System.out.println(jwtTokenUser);
         System.out.println("------HelloWorldController的调用记录----------");

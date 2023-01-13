@@ -72,7 +72,7 @@ public  class  MyServer  {
                 //远程客户端的连接数
                 remoteClientNum++;
                 System.out.println("online  client  num="+remoteClientNum);
-                write(channel, "hello  client".getBytes());
+                write(channel, "hello  client".getBytes("UTF-8"));
               }
               //如果通道已经处于读就绪状态
               if  (key.isReadable())  {
@@ -87,12 +87,14 @@ public  class  MyServer  {
       int  count;
       byteBuffer.clear();
       //从通道中读数据到缓冲区
+        System.out.println("--------发送内容-----");
       while  ((count  =  socketChannel.read(byteBuffer))  >  0)  {
           //byteBuffer写模式变为读模式
           //翻转这个缓冲区。 该限制设置为当前位置，然后将该位置设置为零。 如果标记被定义，则它被丢弃。
           byteBuffer.flip();
 
         // 告诉当前位置和极限之间是否存在任何元素。  true如果，并且只有在此缓冲区中至少有一个元素
+
           while  (byteBuffer.hasRemaining())  {
               System.out.print((char)byteBuffer.get());
           }
