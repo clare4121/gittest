@@ -11,3 +11,11 @@ cas:
   serverName: http://10.125.193.78:8081
   casServerUrlPrefix: http://unifiedprotal.10010sh.cn/cas
   casServerLoginUrl: http://unifiedprotal.10010sh.cn/cas/login
+
+spring:
+  redis:
+    host: 'localhost'
+    password: '123456'
+    port: 6379
+    database: 0
+    timeout: 5000
