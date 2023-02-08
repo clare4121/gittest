@@ -25,8 +25,17 @@ public class ApplicationStart implements ApplicationRunner {
    RedisLockService redisLockService;
     @Override
     public void run(ApplicationArguments args) throws Exception {
-       boolean aa= redisLockService.getLock("lock","miya",10000);
+
+
+
+
+       boolean aa= redisLockService.getLock("lock","miya2",10000);
        System.out.println("---------测试是否执行-------并输出锁的结果-------"+aa);
-       // System.exit(1);
+       if (!aa){
+           System.exit(1);
+       }
+
+
+
     }
 }
